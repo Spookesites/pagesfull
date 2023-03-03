@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your YouTube Channel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+      <h1>My YouTube Channel</h1>
+    </header>
+    <div id="videos-container"></div>
+    <div class="loader">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <button id="show-more-button">Show More</button>
+    <script>
+      const CHANNEL_ID = 'UCdzzVNtTZ4XmToa_IUsInUw';
+      const API_KEY = 'AIzaSyC-1PqA3sJGBsjyEcfa0p3lRURVkeXXoVU';
+  const videosContainer = document.getElementById('videos-container');
+  const loader = document.querySelector('.loader');
+  const showMoreButton = document.getElementById('show-more-button');
+
+  let nextPageToken = '';
+
+  function loadVideos() {
+    loader.style.display = 'flex';
+    showMoreButton.style.display = 'none';
+
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=10&pageToken=${nextPageToken}`)
+      .then(response => response.json())
+      .then(data => {
+        nextPageToken = data.nextPageToken;
+        const videos = data.items.map(item => {
+          const videoId = item.id.videoId;
+          const videoTitle = item.snippet.title;
+          const videoDescription = item.snippet.description;
+          const videoThumbnail = item.snippet.thumbnails.medium.url;
+
+          return `
+            <div class="video">
+              <a href="https://www.youtube.com/watch?v=${videoId}">
+                <img src="${videoThumbnail}" alt="${videoTitle}">
+                <h3>${videoTitle}</h3>
+                <p>${videoDescription}</p>
+              </a>
+            </div>
+          `;
+        }).join('');
+
+        videosContainer.insertAdjacentHTML('beforeend', videos);
+        loader.style.display = 'none';
+
+        if (!nextPageToken) {
+          showMoreButton.style.display = 'block';
+        }
+      })
+      .catch(error => console.error(error));
+  }
+
+  loadVideos();
+
+  showMoreButton.addEventListener('click', loadVideos);
+</script>
+ </body>
+</html>

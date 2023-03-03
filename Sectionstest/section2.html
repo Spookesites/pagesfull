@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+ <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+  <h1>DESCARGAS 2</h1>
+<div class="animated bounceInUp back-button up-buttonabit" onclick="history.go(-1)">Go Back</div>
+
+
+<tr><td>SpookGAme 1.0.0</td><td>5.8 MB</td><td><a onclick="downloadFile()" class="download-button"> fragmotion_137.zip</a></td><td>
+<script>
+  function downloadFile() {
+    var file = "example.rar";
+    var link = document.createElement("a");
+    link.download = file;
+    link.href = "archivosdescargar/" + file;
+    link.target = "_blank";
+    document.body.appendChild(link);
+    link.click();
+  }
+</script>
+
+</body>
+</html>
+	
