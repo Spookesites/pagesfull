@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulario de búsqueda en línea</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<h1>Ingrese los datos de búsqueda</h1>
+	<form>
+		<label for="nombre">Nombre:</label>
+		<input type="text" id="nombre" name="nombre"><br>
+
+		<label for="edad">Edad:</label>
+		<input type="number" id="edad" name="edad"><br>
+
+		<label for="genero">Género:</label>
+		<input type="text" id="genero" name="genero"><br>
+
+		<label for="altura">Altura:</label>
+		<input type="number" id="altura" name="altura"><br>
+
+		<label for="peso">Peso:</label>
+		<input type="number" id="peso" name="peso"><br>
+
+		<input type="submit" value="Buscar">
+	</form>
+
+	<div id="resultados"></div>
+
+	<script>
+		$('form').on('submit', function(event) {
+			event.preventDefault();
+
+			var nombre = $('#nombre').val();
+			var edad = $('#edad').val();
+			var genero = $('#genero').val();
+			var altura = $('#altura').val();
+			var peso = $('#peso').val();
+
+			var query = nombre + ' ' + edad + ' ' + genero + ' ' + altura + ' ' + peso;
+
+			$.ajax({
+				url: 'https://api.duckduckgo.com',
+				data: {q: query, format: 'json'},
+				dataType: 'jsonp',
+				success: function(data) {
+					var resultados = data.Results;
+					var tabla = '<table><tr><th>Título</th><th>URL</th></tr>';
+
+					for (var i = 0; i < resultados.length; i++) {
+						var resultado = resultados[i];
+						tabla += '<tr><td>' + resultado.Text + '</td><td><a href="' + resultado.FirstURL + '">' + resultado.FirstURL + '</a></td></tr>';
+					}
+
+					tabla += '</table>';
+					$('#resultados').html(tabla);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

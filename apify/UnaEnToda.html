@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Redes Sociales de una Persona</title>
+</head>
+<body>
+	<h1>Redes Sociales de una Persona</h1>
+	<form>
+		<label for="nombre">Nombre:</label>
+		<input type="text" id="nombre" name="nombre"><br><br>
+		<input type="button" value="Buscar" onclick="buscarRedes()">
+	</form>
+
+	<script>
+		function buscarRedes() {
+			var nombre = document.getElementById("nombre").value;
+			window.location.href = "https://www.facebook.com/" + nombre;
+
+		}
+	</script>
+</body>
+</html>

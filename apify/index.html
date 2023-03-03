@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Geolocalización de IP</title>
+  </head>
+  <body>
+    <label for="ip-input">Introduce una dirección IP:</label>
+    <input type="text" id="ip-input">
+    <button onclick="buscar()">Aceptar</button>
+    <div id="resultado"></div>
+
+  <label for="phone-input">Introduce un número de teléfono:</label>
+    <input type="text" id="phone-input">
+    <button onclick="buscar2()">Aceptar</button>
+    <div id="resultado2"></div>
+ <script>
+
+     function buscar2() {
+        const phone = document.getElementById("phone-input").value;
+        fetch(`https://apilayer.net/api/validate?access_key=TU_API_KEY&number=${phone}&country_code=&format=1`)
+          .then(response => response.json())
+          .then(data => {
+            const resultado = document.getElementById("resultado");
+            if (data.valid) {
+              resultado.innerHTML = `
+                <p>Número de teléfono: ${data.number}</p>
+                <p>País: ${data.country_name} (${data.country_code})</p>
+                <p>Compañía telefónica: ${data.carrier}</p>
+              `;
+            } else {
+              resultado.innerHTML = `
+                <p>El número de teléfono no es válido</p>
+              `;
+            }
+          })
+          .catch(error => console.error(error));
+      }
+    </script>
+
+    <script>
+      function buscar() {
+        const ip = document.getElementById("ip-input").value;
+        fetch(`https://api.ipdata.co/${ip}?api-key=ed2c2ff8dd8a37b2cfd6749789955a9a140b369909e66a4a7973266d`)
+          .then(response => response.json())
+          .then(data => {
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = `
+              <p>IP: ${data.ip}</p>
+              <p>Hostname: ${data.hostname}</p>
+              <p>Organización: ${data.organisation}</p>
+              <p>País: ${data.country_name} (${data.country_code})</p>
+              <p>Región: ${data.region || ""}</p>
+              <p>Ciudad: ${data.city || ""}</p>
+              <p>Código Postal: ${data.postal || ""}</p>
+              <p>Latitud: ${data.latitude || ""}</p>
+              <p>Longitud: ${data.longitude || ""}</p>
+              <p>Zona horaria: ${data.time_zone ? `${data.time_zone.name} (${data.time_zone.abbr})` : ""}</p>
+              <p>Moneda: ${data.currency ? `${data.currency.name} (${data.currency.code})` : ""}</p>
+              <p>Lenguaje: ${data.languages && data.languages.length > 0 ? `${data.languages[0].name} (${data.languages[0].native})` : ""}</p>
+              <p>ASN: ${data.asn ? `${data.asn.name} (${data.asn.domain})` : ""}</p>
+              <p>Tipo de conexión: ${data.type || ""}</p>
+              <p>Hosting: ${data.isp ? `${data.isp.name} (${data.isp.domain})` : ""}</p>
+            `;
+          })
+          .catch(error => console.error(error));
+      }
+    </script>
+  </body>
+</html>
