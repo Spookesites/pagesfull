@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Poop Website</title>
+    <meta property="og:title" content="CACA">
+   
+    <meta property="og:image" content="https://kaka-com.netlify.app/images/poop.png"/>
+    <style>
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      #poop {
+        transition: transform 0.2s ease-in-out;
+        cursor: pointer;
+      }
+      #poop.clicked {
+        transform: scale(0.9);
+
+      }
+      #poop.clicked:active {
+        transform: scale(1);
+      }
+      #poop:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <img src="images/poop.png" id="poop" onclick="playSound(); this.classList.toggle('clicked');" onmouseup="this.classList.remove('clicked');"/>
+    </div>
+
+    <audio id="sound" src="sounds/poopsound.wav"></audio>
+
+    <script>
+      var sound = document.getElementById("sound");
+      function playSound() {
+        sound.currentTime = 0;
+        sound.play();
+      }
+    </script>
+  </body>
+</html>
+
