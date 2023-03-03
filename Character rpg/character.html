@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(";");
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == " ") {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Character Information</h1>
+    <script>
+      var characterName = getCookie("characterName");
+      var characterAge = getCookie("characterAge");
+      var characterBio = getCookie("characterBio");
+      if (characterName != "") {
+        document.write("<p>Name: " + characterName + "</p>");
+        document.write("<p>Age: " + characterAge + "</p>");
+        document.write("<p>Bio: " + characterBio + "</p>");
+      } else {
+        window.location.href = "index.html";
+      }
+    </script>
+    <button onclick="deleteCookies()">New Character</button>
+    <button onclick="continueToRPG()">Continue</button>
+    <script>
+      function deleteCookies() {
+        document.cookie = "characterName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "characterAge=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "characterBio=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        window.location.href = "index.html";
+      }
+      function continueToRPG() {
+        window.location.href = "history.html";
+      }
+    </script>
+  </body>
+</html>

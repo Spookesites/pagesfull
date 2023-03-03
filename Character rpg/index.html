@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Character Creation</title>
+    <script>
+      function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+
+      function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(";");
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == " ") {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      function saveCharacter() {
+        var characterName = document.getElementById("characterName").value;
+        var characterAge = document.getElementById("characterAge").value;
+        var characterBio = document.getElementById("characterBio").value;
+        setCookie("characterName", characterName, 365);
+        setCookie("characterAge", characterAge, 365);
+        setCookie("characterBio", characterBio, 365);
+        window.location.href = "character.html";
+      }
+    </script>
+  </head>
+  <body>
+<script>
+      var characterName = getCookie("characterName");
+      if (characterName != "") {
+        window.location.href = "character.html";
+      }
+    </script>
+    <h1>Character Creation</h1>
+    <form>
+      <label for="characterName">Name:</label>
+      <input
+        type="text"
+        id="characterName"
+        name="characterName"
+        required
+      /><br><br>
+      <label for="characterAge">Age:</label>
+      <input
+        type="number"
+        id="characterAge"
+        name="characterAge"
+        required
+      /><br><br>
+      <label for="characterBio">Bio:</label>
+      <textarea id="characterBio" name="characterBio"></textarea><br><br>
+      <button type="button" onclick="saveCharacter()">Continue</button>
+    </form>
+  </body>
+</html>

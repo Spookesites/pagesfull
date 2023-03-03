@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function sayHi() {
+        alert("You say hi to Lucy.");
+        document.getElementById("lucyResponse").innerHTML =
+          "Lucy: Hi there! How are you doing today?";
+      }
+
+      function hugHer() {
+        alert("You hug Lucy.");
+        document.getElementById("lucyResponse").innerHTML =
+          "Lucy: Aw, that's so sweet of you! Thank you for the hug :)";
+      }
+
+      function approachSamantha() {
+        document.getElementById("history").innerHTML =
+          "You approach Samantha, who is sitting on a bench and reading a book. She notices you and looks up with a smile.";
+        document.getElementById("actions").innerHTML =
+          "<button onclick='complimentHer()'>Compliment her</button><button onclick='askForHelp()'>Ask for help</button>";
+      }
+
+      function complimentHer() {
+        alert("You compliment Samantha.");
+        document.getElementById("samanthaResponse").innerHTML =
+          "Samantha: Thank you, that's very kind of you. What brings you here today?";
+      }
+
+      function askForHelp() {
+        alert("You ask Samantha for help.");
+        document.getElementById("samanthaResponse").innerHTML =
+          "Samantha: Of course, what can I help you with?";
+      }
+
+      function approachRebecca() {
+        document.getElementById("history").innerHTML =
+          "You approach Rebecca, who is playing with her dog in the park. She notices you and greets you with a wave.";
+        document.getElementById("actions").innerHTML =
+          "<button onclick='playWithDog()'>Play with dog</button><button onclick='askAboutDog()'>Ask about dog</button>";
+      }
+
+      function playWithDog() {
+        alert("You play with Rebecca's dog.");
+        document.getElementById("rebeccaResponse").innerHTML =
+          "Rebecca: Oh, he loves playing with new people! What's your name?";
+      }
+
+      function askAboutDog() {
+        alert("You ask Rebecca about her dog.");
+        document.getElementById("rebeccaResponse").innerHTML =
+          "Rebecca: This is Max, he's a 3-year-old Labrador Retriever. He's such a sweetie, isn't he?";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="history">
+      You are walking in a park, and you see three girls - Lucy, Samantha, and Rebecca.
+      <br><br>
+      What would you like to do?
+    </div>
+    <div id="actions">
+      <button onclick="sayHi()">Say hi to Lucy</button>
+      <button onclick="hugHer()">Hug her</button>
+      <br><br>
+      <button onclick="approachSamantha()">Approach Samantha</button>
+      <br><br>
+      <button onclick="approachRebecca()">Approach Rebecca</button>
+   

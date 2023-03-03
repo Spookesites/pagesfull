@@ -1,0 +1,112 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="og:title" content="TD4rk Tr00p3rs | Jacket"/>
+  <meta name="og:description" content="Bitchs hack systems, we hack people."/>
+  <meta property="og:image" content="https://github.com/TheDarkTroopers/DT/blob/main/photo_2023-01-01_18-24-25.jpg" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1D0ED1">
+  <link rel="stylesheet" href="ghostInTop.css">
+  
+  <title>Welcome</title>
+</head>
+
+<body class="">
+  <div class="container on">
+    <div class="screen">
+      <h3 class="title">
+        CONNECTION ESTABLISHED
+      </h3>
+      <div class="box--outer">
+        <div class="box">
+          <div class="box--inner">
+            <div class="content">
+              <div class="holder">
+                <b>Welcome to Tнё Даяк Tяѳѳpёя</b> — Bitchs hack systems, we hack people.<br> Please enter your access password.
+                <br>
+                <br>
+                <div class="row">
+                  <div class="col col__left label">
+                    Login
+                  </div>
+                  <div class="col col__center">
+                    <input type="text" id="login" maxlength="32" value="DΛЯK ƬЯӨӨPΣЯ" readonly>
+                  </div>
+                </div>
+     <form method="post" action="main.html" onsubmit="return checkPassword()">
+  <div class="row">
+    <div class="col col__left label">
+      Password
+    </div>
+    <div class="col col__center">
+      <input type="password" id="password" name="password" required="required" placeholder="" data-error="" maxlength="32" autocomplete="new-password" autofocus="true", />
+    </div>
+  </div>
+
+  <div class="row">
+    <button type="submit" id="submit" name="submit",>[login]</button>
+    <button type="button" id="show-password" onclick="togglePassword()">Show Password</button>
+  </div>
+</form>
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+var showPassword = false;
+function togglePassword() {
+  var passwordInput = document.getElementById("password");
+  var showPasswordButton = document.getElementById("show-password");
+  if (showPassword) {
+    passwordInput.type = "password";
+    showPasswordButton.innerHTML = "Show Password";
+  } else {
+    passwordInput.type = "text";
+    showPasswordButton.innerHTML = "Hide Password";
+  }
+  showPassword = !showPassword;
+}
+
+
+function checkPassword() {
+  var password = document.getElementById("password").value;
+  if (password === "darkpassword") {
+var passwordInput = document.getElementById("password");
+    passwordInput.value = "Correct Password";
+    passwordInput.type = "text";
+    passwordInput.disabled = true;
+    return true;
+  } else {
+    var passwordInput = document.getElementById("password");
+    passwordInput.value = "Incorrect Password";
+    passwordInput.type = "text";
+    passwordInput.disabled = true;
+    setTimeout(function() {
+      passwordInput.value = "";
+ if (showPassword) {
+      passwordInput.type = "text";
+} else {
+      passwordInput.type = "password";
+}
+      passwordInput.disabled = false;
+      passwordInput.focus();
+    }, 2000);
+    return false;
+  }
+}
+
+</script>
+
+</body>
+</html>

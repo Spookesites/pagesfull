@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Binary to Text Converter</title>
+  <style>
+    label {
+      font-weight: bold;
+    }
+
+    #binary-input {
+      width: 300px;
+      padding: 5px;
+    }
+
+    #convert-button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #convert2-button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #copy-output-button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #convert-button:hover {
+      background-color: #3e8e41;
+    }
+
+    #text-output {
+      width: 300px;
+      height: 150px;
+      padding: 5px;
+    }
+
+    #readme-button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #readme-button:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <label for="binary-input">Introduce Binario o Texto:</label>
+    <input type="text" id="binary-input" placeholder="Texto O Binario Aqui">
+    <button id="convert-button" onclick="convertBinary()">Convertir Binario a Texto</button>
+    <button id="convert2-button" onclick="convertTextToBinary()">Convertir Texto a Binario</button>
+  </div>
+  <div>
+    <label for="text-output">Resultado:</label>
+    <textarea id="text-output" disabled></textarea>
+    <button id="copy-output-button" onclick="copyOutput()">Copiar Resultado</button>
+  </div>
+
+  <button id="readme-button" onclick="openReadme()">Abrir README.md</button>
+
+  <script>
+    function openReadme() {
+      window.open("README.html");
+    }
+  </script>
+
+  <script>
+    function hideWatermark() {
+      var watermark = document.querySelector("img[alt='www.000webhost.com']");
+      if (watermark) {
+        watermark.style.display = "none";
+      }
+    }
+    window.onload = hideWatermark;
+  </script>
+
+  <script>
+    function convertBinary() {
+      var binaryInput = document.getElementById("binary-input").value;
+      var textOutput = document.getElementById("text-output");
+
+      textOutput.value = "";
+      var binaryCode = "";
+      for (var i = 0; i < binaryInput.length; i++) {
+        if (binaryInput[i] === '0' || binaryInput[i] === '1') {
+          binaryCode += binaryInput[i];
+          if (binaryCode.length === 8) {
+            var letter = String.fromCharCode(parseInt(binaryCode, 2));
+            textOutput.value += letter;
+            binaryCode = "";
+          }
+        } else {
+          binaryCode = "";
+        }
+      }
+    }
+
+    function convertTextToBinary() {
+      var textInput = document.getElementById("binary-input").value;
+      var textOutput = document.getElementById("text-output");
+
+      textOutput.value = "";
+      for (var i = 0; i < textInput.length; i++) {
+        var binaryCode = textInput[i].charCodeAt(0).toString(2);
+        textOutput.value += "0".repeat(8 - binaryCode.length) + binaryCode + " ";
+      }
+    }
+    async function copyOutput() {
+      try {
+        await navigator.clipboard.writeText(document.getElementById("text-output").value);
+        console.log('Text copied to clipboard');
+        alert("Texto copiado")
+      } catch (err) {
+        console.error('Failed to copy text: ', err);
+        alert("El texto ha fallado en copiar")
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>

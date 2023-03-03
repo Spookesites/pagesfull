@@ -1,0 +1,35 @@
+.titletop { font-family: ms sans serif, verdana; font-size: 9pt; color: #ffffff; }
+
+.intro { font-family: MS Sans Serif,Verdana; color: #ccCC99; font-size: 9pt; }
+
+.black { font-family: MS Sans Serif,Verdana; color: #000000; font-size: 9pt; }
+
+A:black {
+	color: #000000; 
+}
+
+A:mainsmall {
+	color: #cccc99;
+}
+
+.tdmain { font-family: MS Sans Serif,Verdana; color: #ffffff; font-size: 11pt; }
+
+.main { font-family: MS Sans Serif,Verdana; color: #cccc99; font-size: 11pt; }
+
+.mainsmall { font-family: MS Sans Serif,Verdana; color: #cccc99; font-size: 9pt; }
+
+.titlered { font-family: ms sans serif, verdana; font-size: 9pt; color: #ff0000; font-weight: bold; }
+
+.formcolor {font-family: Tahoma, Verdana, Arial; font-size: 9pt; color: #FFFFFF; background-color: #990000;}
+
+.submitbutton {font-family: Tahoma, Verdana, Arial; font-size: 9pt; color: #FFFFFF; background-color: #990000;}
+
+.header {
+	font-family: MS Sans Serif,Verdana;
+	font-weight: bold;
+	color: white;
+}
+
+.headerWhite {
+	font-family: MS Sans Serif,Verdana; color: #ffffff; font-size: 14pt;
+}
