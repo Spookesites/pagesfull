@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Game.</title>
+<script src="imageSonido.js"></script>
+
+
+  <!-- HTML Meta Tags -->
+  <title>THE GAME.</title>
+  <meta name="description" content="Only Truth">
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://theg4me.netlify.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="THE GAME.">
+  <meta property="og:description" content="Only Truth">
+  <meta property="og:image" content="https://images-ext-2.discordapp.net/external/dYoof-oge7UgyQPcwycKgRCpqfNG6CcZaEbajrdUIis/https/media.tenor.com/abXNa80mB5UAAAAC/creepy-eye-creepy.gif">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="theg4me.netlify.app">
+  <meta property="twitter:url" content="https://theg4me.netlify.app/">
+  <meta name="twitter:title" content="THE GAME.">
+  <meta name="twitter:description" content="Only Truth">
+  <meta name="twitter:image" content="https://images-ext-2.discordapp.net/external/dYoof-oge7UgyQPcwycKgRCpqfNG6CcZaEbajrdUIis/https/media.tenor.com/abXNa80mB5UAAAAC/creepy-eye-creepy.gif">
+
+  <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+        
+	<link rel="shortcut icon" href="these.gif" type="image/gif">
+
+	<style>
+		body {
+			overflow: hidden;
+background-color: black;
+		}
+
+
+#transition {
+animation: fadeIn 1s ease-in-out;
+}
+
+#shakesoft {
+  animation: softShake 2s ease-in-out infinite;
+
+}
+
+@keyframes softShake {
+  0%, 100% {
+    transform: translate(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate(1px, 0.5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translate(0.5px, -1.2px);
+  }
+}
+
+@keyframes fadeOut2 {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+
+.atext {
+position: relative;
+text-align: center;
+font-size: 3em;
+color: white;
+
+}
+
+.atext2 {
+
+font-size: 1.7em;
+color: white;
+	margin-top: 200px; /* add margin to move the text down */
+  transform-origin: center;
+
+}
+ body::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://media.istockphoto.com/id/514938071/photo/red-abstract-background.jpg?s=612x612&w=0&k=20&c=ElWRrUAKy4urK5vjGtU1TQrRg1YWaKwGwuqV_E2XVLWc=");
+      background-size: cover;
+      background-position: center;
+
+      z-index: -1;
+    }
+#title-image {
+			position: absolute;
+text-align: center;
+			top: 10%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		@keyframes fadeIn {
+			from { opacity: 0; transform: translateY(-50px); }
+			to { opacity: 1; transform: translateY(0); }
+		}
+		#animation {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: white;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 3em;
+			color: #fff;
+			animation: fadeOut 5s ease-in-out;
+		}
+		
+		@keyframes fadeOut {
+			0% { opacity: 1; }
+			100% { opacity: 0; }
+		}
+	</style>
+	<script>
+		window.addEventListener("load", function(){
+			// reset the scrollbar position and hide the animation once it finishes playing
+			var animation = document.getElementById("animation");
+			animation.addEventListener("animationend", function(){
+				animation.style.display = "none";
+				document.body.style.overflow = "auto";
+			});
+
+			// reset the scrollbar position when the page is reloaded
+			window.addEventListener("load", function(){
+				document.body.scrollTop = 0;
+			});
+		});
+
+	</script>
+
+</head>
+
+
+<body>
+	<div id="animation">
+		Loading...
+	</div>
+<img id="title-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/The_Game_%28David_Fincher%29_logo.png/1200px-The_Game_%28David_Fincher%29_logo.png" alt="Title Image" width="200" height="150" onclick="playSound('sonidos/scream.wav')" style="cursor:pointer">
+
+
+<div id="shakesoft" class="atext2">In the year 1892, a small village was plagued by a mysterious illness that swept through the town, leaving a trail of death and devastation in its wake. The people whispered that it was the work of dark forces, and many feared for their lives. As the days turned into weeks, the villagers became more and more desperate, turning to the local doctor for answers. But the doctor could find no cure for the disease, and as more and more people died, the villagers began to turn on each other.
+
+It was then that strange things began to happen. Late at night, when the moon was full and the wind howled through the trees, the villagers reported seeing strange figures lurking in the shadows. They whispered that it was the work of witches and demons, and many began to fear for their immortal souls.
+
+As the days wore on, the situation grew worse. The village was plagued by strange occurrences – unexplained fires, livestock mutilations, and disappearances. The villagers became convinced that the forces of darkness were conspiring against them, and many took to locking themselves in their homes at night, hoping to avoid the evil that lurked outside.
+
+And then, one night, the village was consumed by darkness. A thick fog rolled in, obscuring the moon and stars. In the streets, the villagers could hear strange whispers and cackles, and the sound of footsteps in the shadows. They huddled together in their homes, praying for the morning to come, but it never did. The sun never rose again in that cursed village, and the forces of darkness claimed the souls of all who lived there. To this day, the village is said to be haunted by the ghosts of the dead, and no one dares to enter its borders after dark.</div>
+
+	<!-- Your website content goes here -->
+</body>
+</html>
